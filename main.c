@@ -5,17 +5,14 @@
 #include"codebook.h"
 
 int main(void) {
-	char filename[] = "Data/sample.pgm";		//ベクトル量子化したいファイルを選択
-	char cbfilename[] = "Data/codebook.dat";	//量子化するときの代表ベクトルを格納するコードブック
-	char tmpfilename[] = "Data/tmp.dat";
-	char vqfilename[] = "Data/vqmap.dat";		//ベクトル量子化されたファイルのデータ
-	
-//	char filename[] = "sample.pgm";		//ベクトル量子化したいファイルを選択
-//	char cbfilename[] = "codebook.dat";	//量子化するときの代表ベクトルを格納するコードブック
-//	char vqfilename[] = "vq.dat";		//ベクトル量子化されたファイルのデータ
+	char filename[] = "Data/map0429.pgm";		//ベクトル量子化したいファイルを選択
+	char cbfilename[] = "Data/sample/codebook.dat";	//量子化するときの代表ベクトルを格納するコードブック
+	char vqfilename[] = "Data/sample/vq.dat";		//ベクトル量子化されたファイルのデータ
 
-	char row = 2;				//ベクトル化するとき取得する行の要素(未対応なため１で固定)
-	char column = 2;			//ベクトル化をするとき取得する列の要素
+	char tmpfilename[] = "Data/tmp.dat";
+
+	char row = 10;				//ベクトル化するとき取得する行の要素(未対応なため１で固定)
+	char column = 10;			//ベクトル化をするとき取得する列の要素
 	int width, height;			
 	int rowNum, columnNum;
 	int start = 13;
