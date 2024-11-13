@@ -1,6 +1,6 @@
-#include "P5Header.h"
+#include "vq/P5Header.h"
 
-#define RAWMAP_PATH "/home/yuichirohatanaka/Vector-Quantization/map/sim.pgm"
+#define RAWMAP_PATH "map/sim.pgm"
 
 int main() {
     Header header;
