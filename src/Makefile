@@ -2,7 +2,7 @@
 CC = gcc
 CFLAGS = -Wall -I ../include
 TARGET = vq
-SRCS = main.c P5Header.c vq.c representativeVector.c deployment.c
+SRCS = main.c P5Header.c vq.c representativeVector.c restore.c
 OBJS = $(SRCS:.c=.o)
 
 # ルール: 実行ファイルの生成

@@ -1,12 +1,13 @@
 #include "vq/P5Header.h"
 #include "vq/vq.h"
 #include "vq/representativeVector.h"
-#include "vq/deployment.h"
+#include "vq/restore.h"
 
 #define RAWMAP_PATH "map/sim.pgm"
 #define BLOCK_DATA_PATH "sim/block.bin"
 #define CODEBOOK_PATH "sim/codebook.bin"
 #define VQ_DATA_PATH "sim/vq.bin"
+#define RESTORE_MAP_PATH "sim/restore.pgm"
 #define ROW_ELEMENT 2
 #define COLUMN_ELEMENT 2
 
@@ -22,8 +23,8 @@ int main(void) {
     strcpy(vq.block_data, BLOCK_DATA_PATH);
     strcpy(vq.vq_data, VQ_DATA_PATH);
     strcpy(vq.codebook_data, CODEBOOK_PATH);
-    //deployment.h
-    char re[] = "sim/restore.pgm";
+    //restore.h
+    char re[] = RESTORE_MAP_PATH;
     char reData[15] = {0x50, 0x35, 0x0A, 0x33, 0x38, 0x32, 0x20, 0x34, 0x34, 0x34, 0x0A, 0x32, 0x35, 0x35, 0x0A};
     int col = 382;
     char relength = sizeof(reData);
@@ -34,7 +35,7 @@ int main(void) {
 	vq.rawMap_width = header.width;
 	vq.rawMap_height = header.height;
 	vectorQuantization(vq);
-	vqdep(vq.codebook_data, vq.vq_data, re, header.width, header.height, header.start, vq.block_row_element, vq.block_column_element, reData, col, relength);
+	restore(vq.codebook_data, vq.vq_data, re, header.width, header.height, header.start, vq.block_row_element, vq.block_column_element, reData, col, relength);
 
     //確認
     printf("\nmain文\n");

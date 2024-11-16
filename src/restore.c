@@ -1,6 +1,6 @@
-#include"vq/deployment.h"
+#include"vq/restore.h"
 
-int vqdep(char codebook[], char vq[], char restore[], int width, int height, int start, int rowElem, int colElem, char reData[], int row, int relength){
+int restore(char codebook[], char vq[], char restore[], int width, int height, int start, int rowElem, int colElem, char reData[], int row, int relength){
 	//ファイルポインタ
 	FILE *codebook_fp, *vq_fp, *restore_fp;
 	//ベクトル量子化されたデータ
