@@ -1,6 +1,6 @@
 #include"vq/representativeVector.h"
 
-int representativeVector(FILE *block_fp, FILE *codebook_fp, FILE *vq_fp, char raw_vector_data[], int vector_element, unsigned short *representative_vector_number){
+int representativeVector(FILE *block_fp, FILE *codebook_fp, FILE *vq_fp, unsigned char raw_vector_data[], int vector_element, unsigned short *representative_vector_number){
 	unsigned char representative_vector_data[vector_element];
 	unsigned short *temporary_data = representative_vector_number;
 
