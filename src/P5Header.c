@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Yuichiro Hatanaka
+// SPDX-License-Identifier: BSD-3-Clause
+
 #include "vq/P5Header.h"
 
 #define MAX_LINE_LENGTH 256
