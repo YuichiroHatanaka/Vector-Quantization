@@ -26,3 +26,7 @@
 ##
 非可逆なベクトル量子化実装のためにベクトル感の距離を取得するためのプログラムを作成中
 https://github.com/YuichiroHatanaka/vector_distance
+
+## ライセンス
+- このソフトウェアパッケージは, 3条項BSDライセンスの下, 再頒布および使用が許可されます.
+- © 2024 Yuichiro Hatanaka
