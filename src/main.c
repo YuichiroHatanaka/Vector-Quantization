@@ -6,11 +6,11 @@
 #include "vq/representativeVector.h"
 #include "vq/restore.h"
 
-#define RAWMAP_PATH "map/sim.pgm"
-#define BLOCK_DATA_PATH "sim/block.bin"
-#define CODEBOOK_PATH "sim/codebook.bin"
-#define VQ_DATA_PATH "sim/vq.bin"
-#define RESTORE_MAP_PATH "sim/restore.pgm"
+#define RAWMAP_PATH "map/hallway.pgm"
+#define BLOCK_DATA_PATH "hallway/block.bin"
+#define CODEBOOK_PATH "hallway/codebook.bin"
+#define VQ_DATA_PATH "hallway/vq.bin"
+#define RESTORE_MAP_PATH "hallway/restore.pgm"
 #define ROW_ELEMENT 2
 #define COLUMN_ELEMENT 2
 
@@ -28,8 +28,10 @@ int main(void) {
     strcpy(vq.codebook_data, CODEBOOK_PATH);
     //restore.h
     char re[] = RESTORE_MAP_PATH;
-    char reData[15] = {0x50, 0x35, 0x0A, 0x33, 0x38, 0x32, 0x20, 0x34, 0x34, 0x34, 0x0A, 0x32, 0x35, 0x35, 0x0A};
-    int col = 382;
+    char reData[15] = {0x50, 0x35, 0x0A, 0x39, 0x30, 0x36, 0x20, 0x36, 0x30, 0x32, 0x0A, 0x32, 0x35, 0x35, 0x0A};
+    //char reData[15] = {0x50, 0x35, 0x0A, 0x33, 0x38, 0x32, 0x20, 0x34, 0x34, 0x34, 0x0A, 0x32, 0x35, 0x35, 0x0A};
+    int col = 906;
+    //int col = 382;
     char relength = sizeof(reData);
 
 
