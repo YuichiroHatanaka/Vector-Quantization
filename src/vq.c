@@ -33,7 +33,7 @@ int vectorQuantization(VQ data){
 	    unknown_block_row_data[i] = 0xCD;
 	
 	//代表ベクトルのカウンタ
-	unsigned short representative_vector_number = 1;
+	int representative_vector_number = 1;
 
 	//ファイルが開くか確認
 	if ((rawMap_fp = fopen(data.rawMap, "rb")) == NULL){

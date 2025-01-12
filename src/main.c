@@ -6,13 +6,13 @@
 #include "vq/representativeVector.h"
 #include "vq/restore.h"
 
-#define RAWMAP_PATH "map/sim.pgm"
-#define BLOCK_DATA_PATH "sim/block.bin"
-#define CODEBOOK_PATH "sim/codebook.bin"
-#define VQ_DATA_PATH "sim/vq.bin"
-#define RESTORE_MAP_PATH "sim/restore.pgm"
-#define ROW_ELEMENT 2
-#define COLUMN_ELEMENT 2
+#define RAWMAP_PATH "map/tsudanuma.pgm"
+#define BLOCK_DATA_PATH "tsudanuma/16/block.bin"
+#define CODEBOOK_PATH "tsudanuma/16/codebook.bin"
+#define VQ_DATA_PATH "tsudanuma/16/vq.bin"
+#define RESTORE_MAP_PATH "tsudanuma/16/restore.pgm"
+#define ROW_ELEMENT 4
+#define COLUMN_ELEMENT 4
 
 int main(void) {
     //P5Header関数で使用する変数
@@ -28,8 +28,8 @@ int main(void) {
     strcpy(vq.codebook_data, CODEBOOK_PATH);
     //restore.h
     char re[] = RESTORE_MAP_PATH;
-    char reData[15] = {0x50, 0x35, 0x0A, 0x33, 0x38, 0x32, 0x20, 0x34, 0x34, 0x34, 0x0A, 0x32, 0x35, 0x35, 0x0A};
-    int col = 382;
+    char reData[17] = {0x50, 0x35, 0x0A, 0x35, 0x38, 0x38, 0x38, 0x20, 0x34, 0x30, 0x30, 0x30, 0x0A, 0x32, 0x35, 0x35, 0x0A};
+    int col = 5888;
     char relength = sizeof(reData);
 
 

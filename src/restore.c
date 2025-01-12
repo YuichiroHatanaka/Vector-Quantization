@@ -7,7 +7,7 @@ int restore(char codebook[], char vq[], char restore[], int width, int height, i
 	//ファイルポインタ
 	FILE *codebook_fp, *vq_fp, *restore_fp;
 	//ベクトル量子化されたデータ
-	unsigned short vqData;
+	int vqData;
 	//コードブックのデータ
 	int vecElem = rowElem * colElem;
 	unsigned char cbData[vecElem];
@@ -36,11 +36,11 @@ int restore(char codebook[], char vq[], char restore[], int width, int height, i
 
 	for(int i = 0; i < rowVec; i++){
 		for(int j = 0; j < colVec; j++){
-			fread(&vqData, sizeof(short), 1, vq_fp);
+			fread(&vqData, sizeof(int), 1, vq_fp);
 			fseek(codebook_fp, vecElem * vqData, SEEK_SET);
 			fread(&cbData, sizeof(char), vecElem, codebook_fp);
 			for(int k = 0; k < rowElem; k++){
-				fseek(restore_fp, 15 + vecElem * colVec * i + colElem * j + row * k, SEEK_SET);
+				fseek(restore_fp, start + vecElem * colVec * i + colElem * j + row * k, SEEK_SET);
 				for(int l = 0; l < colElem; l++)
 					fwrite(&cbData[colElem * k + l], sizeof(char), 1, restore_fp);
 			}
