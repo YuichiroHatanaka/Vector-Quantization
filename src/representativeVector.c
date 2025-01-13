@@ -12,13 +12,15 @@ int representativeVector(FILE *block_fp, FILE *codebook_fp, FILE *vq_fp, unsigne
 		fseek(codebook_fp, vector_element * i, SEEK_SET);
 		fread(&representative_vector_data, sizeof(char), vector_element, codebook_fp);
 		if(memcmp(raw_vector_data, representative_vector_data, vector_element) == 0){
-			printf("data is %d", i);
+	//		printf("data is %d", i);
 			fwrite(&i, sizeof(short), 1, vq_fp);
 			break;
 		}
 
 		if(i + 1 == *temporary_data){
-			printf("data is %d new!", *temporary_data);
+	//		printf("data is %d new!", *temporary_data);
+			if(*temporary_data == 65535)
+			    printf("index is full\n");
 			fseek(codebook_fp, vector_element * *temporary_data, SEEK_SET);
 			fwrite(raw_vector_data, sizeof(char), vector_element, codebook_fp);
 			fwrite(&*temporary_data, sizeof(short), 1, vq_fp);
@@ -27,7 +29,7 @@ int representativeVector(FILE *block_fp, FILE *codebook_fp, FILE *vq_fp, unsigne
 		}
 	}
 
-	printf("number is %d\n", *representative_vector_number);
+//	printf("number is %d\n", *representative_vector_number);
 
 	return 0;
 }

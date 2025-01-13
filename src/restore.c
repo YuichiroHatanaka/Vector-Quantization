@@ -37,7 +37,7 @@ int restore(char codebook[], char vq[], char restore[], int width, int height, i
 			fseek(codebook_fp, vecElem * vqData, SEEK_SET);
 			fread(&cbData, sizeof(char), vecElem, codebook_fp);
 			for(int k = 0; k < rowElem; k++){
-				fseek(restore_fp, 15 + vecElem * colVec * i + colElem * j + row * k, SEEK_SET);
+				fseek(restore_fp, start + vecElem * colVec * i + colElem * j + row * k, SEEK_SET);
 				for(int l = 0; l < colElem; l++)
 					fwrite(&cbData[colElem * k + l], sizeof(char), 1, restore_fp);
 			}
