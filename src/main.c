@@ -6,13 +6,13 @@
 #include "vq/representativeVector.h"
 #include "vq/restore.h"
 
-#define RAWMAP_PATH "map/tsudanuma.pgm"
-#define BLOCK_DATA_PATH "tsudanuma/16/block.bin"
-#define CODEBOOK_PATH "tsudanuma/16/codebook.bin"
-#define VQ_DATA_PATH "tsudanuma/16/vq.bin"
-#define RESTORE_MAP_PATH "tsudanuma/16/restore.pgm"
-#define ROW_ELEMENT 4
-#define COLUMN_ELEMENT 4
+#define RAWMAP_PATH "map/tsukuba.pgm"
+#define BLOCK_DATA_PATH "tsukuba/64/block.bin"
+#define CODEBOOK_PATH "tsukuba/64/codebook.bin"
+#define VQ_DATA_PATH "tsukuba/64/vq.bin"
+#define RESTORE_MAP_PATH "tsukuba/64/restore.pgm"
+#define ROW_ELEMENT 8
+#define COLUMN_ELEMENT 8
 
 int main(void) {
     //P5Header関数で使用する変数
@@ -28,8 +28,8 @@ int main(void) {
     strcpy(vq.codebook_data, CODEBOOK_PATH);
     //restore.h
     char re[] = RESTORE_MAP_PATH;
-    char reData[17] = {0x50, 0x35, 0x0A, 0x35, 0x38, 0x38, 0x38, 0x20, 0x34, 0x30, 0x30, 0x30, 0x0A, 0x32, 0x35, 0x35, 0x0A};
-    int col = 5888;
+    char reData[18] = {0x50, 0x35, 0x0A, 0x31, 0x33, 0x32, 0x35, 0x36, 0x20, 0x37, 0x31, 0x30, 0x34, 0x0A, 0x32, 0x35, 0x35, 0x0A};
+    int col = 13256;
     char relength = sizeof(reData);
 
 
@@ -38,7 +38,7 @@ int main(void) {
 	vq.rawMap_width = header.width;
 	vq.rawMap_height = header.height;
 	vectorQuantization(vq);
-	restore(vq.codebook_data, vq.vq_data, re, header.width, header.height, header.start, vq.block_row_element, vq.block_column_element, reData, col, relength);
+	restore(vq.codebook_data, vq.vq_data, re, header.width, header.height, 18, vq.block_row_element, vq.block_column_element, reData, col, relength);
 
     //確認
     printf("\nmain文\n");
