@@ -37,29 +37,25 @@ int vectorQuantization(VQ data){
 
 	//ファイルが開くか確認
 	if ((rawMap_fp = fopen(data.rawMap, "rb")) == NULL){
- 		perror("ERROR: cannot open rawMap file\n");
-		fclose(rawMap_fp);
+ 		perror("ERROR:vq cannot open rawMap file\n");
       	return 1;
    	}
  	if ((block_fp = fopen(data.block_data, "w+b")) == NULL){
-  		perror("ERROR: cannot open block file\n");
+  		printf("ERROR:vq cannot open %s block file\n", data.block_data);
 		fclose(rawMap_fp);
-		fclose(block_fp);
    		return 1;
 	}
 	if ((vq_fp = fopen(data.vq_data, "w+b")) == NULL){
- 		printf("ERROR: cannot open vq file\n");
+ 		printf("ERROR:vq cannot open vq file\n");
 		fclose(rawMap_fp);
 		fclose(block_fp);
-		fclose(vq_fp);
       	return 1;
    	}
    	if ((codebook_fp = fopen(data.codebook_data, "w+b")) == NULL){
-    	printf("ERROR: cannot open codebook file\n");
+    	printf("ERROR:vq cannot open codebook file\n");
 		fclose(rawMap_fp);
 		fclose(block_fp);
 		fclose(vq_fp);
-		fclose(codebook_fp);
      	return 1;
  	}
 	
