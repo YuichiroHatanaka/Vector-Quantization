@@ -4,7 +4,8 @@
 
 for((a=1;a<=$1;a++));do
 i=$a
-MAP="hallway"
+DIR="../VQMap/"
+MAP="sim"
 ELEM=$((i))
 NUM=$((i*i))
 
@@ -12,8 +13,8 @@ if [ -z "$1" ]; then
 i=2
 fi
 
-mkdir -p $MAP/$NUM/
+mkdir -p "$DIR""$MAP"/$NUM/
 make
-./vq $MAP/ $NUM $ELEM
+./vq "$DIR"$MAP/ $NUM $ELEM
 make clean
 done

@@ -3,7 +3,7 @@
 
 int roundup(int number, int multiple){
 	int answer = 0;
-	answer = (number / multiple + 1) * multiple;
+	answer = ((number - 1) / multiple + 1) * multiple;
 	return answer;
 }
 

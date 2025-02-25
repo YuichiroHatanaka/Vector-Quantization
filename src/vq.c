@@ -89,12 +89,13 @@ int vectorQuantization(VQ data){
 	//エリア3
 	for(int j = 0; j < row_vector_number - 1; j++){
 		for(int k = 0; k < remainder_column_element; k++){
-			fseek(rawMap_fp, data.header_length + same_row_block_element * (row_vector_number - 1) + data.block_row_element * j + data.rawMap_width * k, SEEK_SET);
+			fseek(rawMap_fp, data.header_length + same_row_block_element * (column_vector_number - 1) + data.block_row_element * j + data.rawMap_width * k, SEEK_SET);
 			fread(block_row_data, sizeof(char), data.block_row_element, rawMap_fp);
 			fwrite(block_row_data, sizeof(char), data.block_row_element, block_fp);
 		}
-		for(int k = 0; k < additional_column_element; k++)
+		for(int k = 0; k < additional_column_element; k++){
 			fwrite(&unknown_block_row_data, sizeof(char), data.block_row_element, block_fp);
+		}
 		representativeVector(block_fp, codebook_fp, vq_fp, raw_vector_data, vector_element, &representative_vector_number);
 	}
 	//エリア４

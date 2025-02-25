@@ -15,7 +15,7 @@
 引数3 代表ベクトルの次元ごとの要素(違う値を指定したい場合は引数を増やして変更してください)
 */
 
-#define RAWMAP_PATH "map/hallway.pgm"
+#define RAWMAP_PATH "../map/tsudanuma.pgm"
 #define BLOCK_DATA_PATH "/block.bin"
 #define CODEBOOK_PATH "/codebook.bin"
 #define VQ_DATA_PATH "/vq.bin"
@@ -50,6 +50,7 @@ int main(int argc, char *argv[]) {
     P5Header(rawMap, &header);
     vq.rawMap_width = header.width;
     vq.rawMap_height = header.height;
+	vq.header_length = header.start;
 
 //roundup
 	int recolumn = roundup(header.width, atoi(argv[3]));
